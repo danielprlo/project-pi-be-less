@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: Project pi be less
+Resources:
+  MyApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: UserAPI
+      StageName: Prod
+      Description: API for FE user requests
+      Cors:
+        AllowMethods: "'POST, GET, DELETE, OPTIONS'"
+        AllowHeaders: "'*'"
+        AllowOrigin: "'*'"
+
+  ##### Hello world lambda #####
+  HelloWorldLambda:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambdas/helloWorld.handler
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Description: 'Hello world lambda'
+      MemorySize: 128
+      Timeout: 30
+      Events:
+        DeleteQuestionLambdaEvent:
+          Type: Api
+          Properties:
+            Path: /helloWorld
+            Method: get
+            RestApiId: !Ref MyApi
+      Environment:
+        Variables:
+          REGION: "eu-west-1"

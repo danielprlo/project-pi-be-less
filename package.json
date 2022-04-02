@@ -1,0 +1,19 @@
+{
+  "name": "project-pi-be-less",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shake93/project-pi-be-less.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shake93/project-pi-be-less/issues"
+  },
+  "homepage": "https://github.com/shake93/project-pi-be-less#readme"
+}
