@@ -24,7 +24,7 @@ Resources:
       MemorySize: 128
       Timeout: 30
       Events:
-        DeleteQuestionLambdaEvent:
+        HelloWorldLambdaEvent:
           Type: Api
           Properties:
             Path: /helloWorld
