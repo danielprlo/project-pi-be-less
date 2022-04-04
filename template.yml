@@ -88,7 +88,7 @@ Resources:
         GetQuestionnaireQuestionsLambdaEvent:
           Type: Api
           Properties:
-            Path: /questionnaire/{questionnaireId}/question
+            Path: /questionnaire/question/{questionnaireId}
             Method: get
             RestApiId: !Ref MyApi
       Environment:
