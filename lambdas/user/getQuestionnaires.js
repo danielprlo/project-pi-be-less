@@ -5,7 +5,9 @@ const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
 AWS.config.update({region: 'eu-west-1'});
 
 const handlerFunction = async (event, context) => {
-    const id = event.pathParameters.id;
+    const questionnaireId = event.pathParameters.id;
+    const id = '12345';
+
     const params = {
         TableName: 'StudyData',
         KeyConditionExpression: '#pk = :pk and begins_with(#sk, :sk)',
