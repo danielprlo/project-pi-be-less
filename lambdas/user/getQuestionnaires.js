@@ -17,7 +17,7 @@ const handlerFunction = async (event, context) => {
         },
         ExpressionAttributeValues: {
             pk: 'USERID#'+id,
-            sk: 'QUESTIONNAIRE#'+questionnaireId,
+            sk: 'QUESTIONNAIRE#',
         }
     };
 
