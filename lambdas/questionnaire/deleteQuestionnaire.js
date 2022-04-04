@@ -46,6 +46,25 @@ const handlerFunction = async (event, context) => {
         };
 
         await docClient.delete(del).promise();
+
+        // Delete questionnaire from users
+        const params = {
+            TableName: 'StudyData',
+            Key: {
+                pk: 'USERID#'+id,
+                sk: 'QUESTIONNAIRE#'+questionnaireId,
+            }
+        };
+
+        try {
+            await docClient.delete(params).promise();
+        } catch (error) {
+            return {
+                statusCode: 400,
+                error: `Could not query: ${error.stack}`
+            };
+        }
+
         return { statusCode: 200, body: "Done" };
     } catch (error) {
         return {
