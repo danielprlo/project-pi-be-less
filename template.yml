@@ -28,7 +28,7 @@ Resources:
         DeleteQuestionLambdaEvent:
           Type: Api
           Properties:
-            Path: /question/{id}/{questionId}
+            Path: /questionnaire/{questionnaireId}/question/{questionId}
             Method: delete
             RestApiId: !Ref MyApi
       Environment:
@@ -48,7 +48,7 @@ Resources:
         PostQuestionLambdaEvent:
           Type: Api
           Properties:
-            Path: /question/{id}/{questionId}
+            Path: /questionnaire/{questionnaireId}/question/{questionId}
             Method: post
             RestApiId: !Ref MyApi
       Environment:
@@ -68,7 +68,7 @@ Resources:
         ShowQuestionLambdaEvent:
           Type: Api
           Properties:
-            Path: /question/{id}/{questionId}
+            Path: /questionnaire/{questionnaireId}/question/{questionId}
             Method: get
             RestApiId: !Ref MyApi
       Environment:
@@ -88,7 +88,7 @@ Resources:
         GetQuestionnaireQuestionsLambdaEvent:
           Type: Api
           Properties:
-            Path: /question/{id}
+            Path: /questionnaire/{questionnaireId}/question
             Method: get
             RestApiId: !Ref MyApi
       Environment:

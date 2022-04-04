@@ -5,14 +5,15 @@ const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
 AWS.config.update({region: 'eu-west-1'});
 
 const handlerFunction = async (event, context) => {
-    const id = event.pathParameters.id;
+    const questionnaireId = event.pathParameters.id;
+    const userId = '12345';
     const parsedBody = JSON.parse(event.body);
 
     const params = {
         TableName: 'StudyData',
         Item: {
-            pk: 'USER#1',
-            sk: 'QUESTIONNAIRE#'+id,
+            pk: 'USER#'+userId,
+            sk: 'QUESTIONNAIRE#'+questionnaireId,
             name: parsedBody.name,
             description: parsedBody.description,
             type: parsedBody.type,
