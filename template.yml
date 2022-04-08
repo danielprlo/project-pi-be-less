@@ -4,10 +4,9 @@ Description: Project pi be lesss
 Resources:
   MyApi:
     Type: AWS::Serverless::Api
-    DependsOn:
-      - "FailuresMethodGet"
     Properties:
       Name: UserAPI
+      Mode: overwrite
       StageName: Prod
       Description: API for FE user requests
       Cors:
