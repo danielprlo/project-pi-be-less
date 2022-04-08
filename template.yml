@@ -12,28 +12,28 @@ Resources:
         AllowMethods: "'POST, GET, DELETE, OPTIONS'"
         AllowHeaders: "'*'"
         AllowOrigin: "'*'"
-#
-#  ##### Questions API lambdas really #####
-#  DeleteQuestionLambda:
-#    Type: 'AWS::Serverless::Function'
-#    Properties:
-#      Handler: lambdas/question/deleteQuestion.handler
-#      Runtime: nodejs12.x
-#      CodeUri: ./
-#      Description: 'Lambda function'
-#      MemorySize: 128
-#      Timeout: 30
-#      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
-#      Events:
-#        DeleteQuestionLambdaEvent:
-#          Type: Api
-#          Properties:
-#            Path: /questionnaire/{questionnaireId}/question/{questionId}
-#            Method: delete
-#            RestApiId: !Ref MyApi
-#      Environment:
-#        Variables:
-#          REGION: "eu-west-1"
+
+  ##### Questions API lambdas really #####
+  DeleteQuestionLambda:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambdas/question/deleteQuestion.handler
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Description: 'Lambda function'
+      MemorySize: 128
+      Timeout: 30
+      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
+      Events:
+        DeleteQuestionLambdaEvent:
+          Type: Api
+          Properties:
+            Path: /questionnaire/{questionnaireId}/question/{questionId}
+            Method: delete
+            RestApiId: !Ref MyApi
+      Environment:
+        Variables:
+          REGION: "eu-west-1"
 #  PostQuestionLambda:
 #    Type: 'AWS::Serverless::Function'
 #    Properties:
