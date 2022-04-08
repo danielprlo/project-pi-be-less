@@ -34,246 +34,246 @@ Resources:
       Environment:
         Variables:
           REGION: "eu-west-1"
-#  PostQuestionLambda:
-#    Type: 'AWS::Serverless::Function'
-#    Properties:
-#      Handler: lambdas/question/postQuestion.handler
-#      Runtime: nodejs12.x
-#      CodeUri: ./
-#      Description: 'Lambda function'
-#      MemorySize: 128
-#      Timeout: 30
-#      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
-#      Events:
-#        PostQuestionLambdaEvent:
-#          Type: Api
-#          Properties:
-#            Path: /questionnaire/{questionnaireId}/question/{questionId}
-#            Method: post
-#            RestApiId: !Ref MyApi
-#      Environment:
-#        Variables:
-#          REGION: "eu-west-1"
-#  ShowQuestionLambda:
-#    Type: 'AWS::Serverless::Function'
-#    Properties:
-#      Handler: lambdas/question/showQuestion.handler
-#      Runtime: nodejs12.x
-#      CodeUri: ./
-#      Description: 'Lambda function'
-#      MemorySize: 128
-#      Timeout: 30
-#      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
-#      Events:
-#        ShowQuestionLambdaEvent:
-#          Type: Api
-#          Properties:
-#            Path: /questionnaire/{questionnaireId}/question/{questionId}
-#            Method: get
-#            RestApiId: !Ref MyApi
-#      Environment:
-#        Variables:
-#          REGION: "eu-west-1"
-#  GetQuestionnaireQuestionsLambda:
-#    Type: 'AWS::Serverless::Function'
-#    Properties:
-#      Handler: lambdas/question/getQuestionnaireQuestions.handler
-#      Runtime: nodejs12.x
-#      CodeUri: ./
-#      Description: 'Lambda function'
-#      MemorySize: 128
-#      Timeout: 30
-#      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
-#      Events:
-#        GetQuestionnaireQuestionsLambdaEvent:
-#          Type: Api
-#          Properties:
-#            Path: /questionnaire/question/{questionnaireId}
-#            Method: get
-#            RestApiId: !Ref MyApi
-#      Environment:
-#        Variables:
-#          REGION: "eu-west-1"
-#  ##### Questionnaire API lambdas #####
-#  deleteQuestionnaireLambda:
-#    Type: 'AWS::Serverless::Function'
-#    Properties:
-#      Handler: lambdas/questionnaire/deleteQuestionnaire.handler
-#      Runtime: nodejs12.x
-#      CodeUri: ./
-#      Description: 'Lambda function'
-#      MemorySize: 128
-#      Timeout: 30
-#      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
-#      Events:
-#        deleteQuestionnaireLambdaEvent:
-#          Type: Api
-#          Properties:
-#            Path: /questionnaire/{id}
-#            Method: delete
-#            RestApiId: !Ref MyApi
-#      Environment:
-#        Variables:
-#          REGION: "eu-west-1"
-#  getQuestionnaireLambda:
-#    Type: 'AWS::Serverless::Function'
-#    Properties:
-#      Handler: lambdas/questionnaire/getQuestionnaire.handler
-#      Runtime: nodejs12.x
-#      CodeUri: ./
-#      Description: 'Lambda function'
-#      MemorySize: 128
-#      Timeout: 30
-#      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
-#      Events:
-#        getQuestionnaireLambdaEvent:
-#          Type: Api
-#          Properties:
-#            Path: /questionnaire
-#            Method: get
-#            RestApiId: !Ref MyApi
-#      Environment:
-#        Variables:
-#          REGION: "eu-west-1"
-#  postQuestionnaireLambda:
-#    Type: 'AWS::Serverless::Function'
-#    Properties:
-#      Handler: lambdas/questionnaire/postQuestionnaire.handler
-#      Runtime: nodejs12.x
-#      CodeUri: ./
-#      Description: 'Lambda function'
-#      MemorySize: 128
-#      Timeout: 30
-#      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
-#      Events:
-#        postQuestionnaireLambdaEvent:
-#          Type: Api
-#          Properties:
-#            Path: /questionnaire/{id}
-#            Method: post
-#            RestApiId: !Ref MyApi
-#      Environment:
-#        Variables:
-#          REGION: "eu-west-1"
-#  showQuestionnaireLambda:
-#    Type: 'AWS::Serverless::Function'
-#    Properties:
-#      Handler: lambdas/questionnaire/showQuestionnaire.handler
-#      Runtime: nodejs12.x
-#      CodeUri: ./
-#      Description: 'Lambda function'
-#      MemorySize: 128
-#      Timeout: 30
-#      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
-#      Events:
-#        showQuestionnaireLambdaEvent:
-#          Type: Api
-#          Properties:
-#            Path: /questionnaire/{id}
-#            Method: get
-#            RestApiId: !Ref MyApi
-#      Environment:
-#        Variables:
-#          REGION: "eu-west-1"
-#  ##### Types API lambdas #####
-#  getQuestionTypeLambda:
-#    Type: 'AWS::Serverless::Function'
-#    Properties:
-#      Handler: lambdas/types/getQuestionType.handler
-#      Runtime: nodejs12.x
-#      CodeUri: ./
-#      Description: 'Lambda function'
-#      MemorySize: 128
-#      Timeout: 30
-#      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
-#      Events:
-#        getQuestionTypeLambdaEvent:
-#          Type: Api
-#          Properties:
-#            Path: /question-type
-#            Method: get
-#            RestApiId: !Ref MyApi
-#      Environment:
-#        Variables:
-#          REGION: "eu-west-1"
-#  getAlgorithmTypeLambda:
-#    Type: 'AWS::Serverless::Function'
-#    Properties:
-#      Handler: lambdas/types/getAlgorithmType.handler
-#      Runtime: nodejs12.x
-#      CodeUri: ./
-#      Description: 'Lambda function'
-#      MemorySize: 128
-#      Timeout: 30
-#      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
-#      Events:
-#        getAlgorithmTypeLambdaEvent:
-#          Type: Api
-#          Properties:
-#            Path: /algorithm-type
-#            Method: get
-#            RestApiId: !Ref MyApi
-#      Environment:
-#        Variables:
-#          REGION: "eu-west-1"
-#  ##### User API lambdas #####
-#  deleteUserQuestionnaireLambda:
-#    Type: 'AWS::Serverless::Function'
-#    Properties:
-#      Handler: lambdas/user/deleteQuestionnaire.handler
-#      Runtime: nodejs12.x
-#      CodeUri: ./
-#      Description: 'Lambda function'
-#      MemorySize: 128
-#      Timeout: 30
-#      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
-#      Events:
-#        deleteUserQuestionnaireLambdaEvent:
-#          Type: Api
-#          Properties:
-#            Path: /user/questionnaire/{id}
-#            Method: delete
-#            RestApiId: !Ref MyApi
-#      Environment:
-#        Variables:
-#          REGION: "eu-west-1"
-#  getUserQuestionnairesLambda:
-#    Type: 'AWS::Serverless::Function'
-#    Properties:
-#      Handler: lambdas/user/getQuestionnaires.handler
-#      Runtime: nodejs12.x
-#      CodeUri: ./
-#      Description: 'Lambda function'
-#      MemorySize: 128
-#      Timeout: 30
-#      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
-#      Events:
-#        getUserQuestionnairesLambdaEvent:
-#          Type: Api
-#          Properties:
-#            Path: /user/questionnaires
-#            Method: get
-#            RestApiId: !Ref MyApi
-#      Environment:
-#        Variables:
-#          REGION: "eu-west-1"
-#  postUserQuestionnaireLambda:
-#    Type: 'AWS::Serverless::Function'
-#    Properties:
-#      Handler: lambdas/user/postQuestionnaire.handler
-#      Runtime: nodejs12.x
-#      CodeUri: ./
-#      Description: 'Lambda function'
-#      MemorySize: 128
-#      Timeout: 30
-#      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
-#      Events:
-#        postUserQuestionnaireLambdaEvent:
-#          Type: Api
-#          Properties:
-#            Path: /user/questionnaire/{id}
-#            Method: post
-#            RestApiId: !Ref MyApi
-#      Environment:
-#        Variables:
-#          REGION: "eu-west-1"
+  PostQuestionLambda:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambdas/question/postQuestion.handler
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Description: 'Lambda function'
+      MemorySize: 128
+      Timeout: 30
+      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
+      Events:
+        PostQuestionLambdaEvent:
+          Type: Api
+          Properties:
+            Path: /questionnaire/{questionnaireId}/question/{questionId}
+            Method: post
+            RestApiId: !Ref MyApi
+      Environment:
+        Variables:
+          REGION: "eu-west-1"
+  ShowQuestionLambda:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambdas/question/showQuestion.handler
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Description: 'Lambda function'
+      MemorySize: 128
+      Timeout: 30
+      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
+      Events:
+        ShowQuestionLambdaEvent:
+          Type: Api
+          Properties:
+            Path: /questionnaire/{questionnaireId}/question/{questionId}
+            Method: get
+            RestApiId: !Ref MyApi
+      Environment:
+        Variables:
+          REGION: "eu-west-1"
+  GetQuestionnaireQuestionsLambda:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambdas/question/getQuestionnaireQuestions.handler
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Description: 'Lambda function'
+      MemorySize: 128
+      Timeout: 30
+      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
+      Events:
+        GetQuestionnaireQuestionsLambdaEvent:
+          Type: Api
+          Properties:
+            Path: /questionnaire/question/{questionnaireId}
+            Method: get
+            RestApiId: !Ref MyApi
+      Environment:
+        Variables:
+          REGION: "eu-west-1"
+  ##### Questionnaire API lambdas #####
+  deleteQuestionnaireLambda:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambdas/questionnaire/deleteQuestionnaire.handler
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Description: 'Lambda function'
+      MemorySize: 128
+      Timeout: 30
+      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
+      Events:
+        deleteQuestionnaireLambdaEvent:
+          Type: Api
+          Properties:
+            Path: /questionnaire/{id}
+            Method: delete
+            RestApiId: !Ref MyApi
+      Environment:
+        Variables:
+          REGION: "eu-west-1"
+  getQuestionnaireLambda:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambdas/questionnaire/getQuestionnaire.handler
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Description: 'Lambda function'
+      MemorySize: 128
+      Timeout: 30
+      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
+      Events:
+        getQuestionnaireLambdaEvent:
+          Type: Api
+          Properties:
+            Path: /questionnaire
+            Method: get
+            RestApiId: !Ref MyApi
+      Environment:
+        Variables:
+          REGION: "eu-west-1"
+  postQuestionnaireLambda:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambdas/questionnaire/postQuestionnaire.handler
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Description: 'Lambda function'
+      MemorySize: 128
+      Timeout: 30
+      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
+      Events:
+        postQuestionnaireLambdaEvent:
+          Type: Api
+          Properties:
+            Path: /questionnaire/{id}
+            Method: post
+            RestApiId: !Ref MyApi
+      Environment:
+        Variables:
+          REGION: "eu-west-1"
+  showQuestionnaireLambda:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambdas/questionnaire/showQuestionnaire.handler
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Description: 'Lambda function'
+      MemorySize: 128
+      Timeout: 30
+      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
+      Events:
+        showQuestionnaireLambdaEvent:
+          Type: Api
+          Properties:
+            Path: /questionnaire/{id}
+            Method: get
+            RestApiId: !Ref MyApi
+      Environment:
+        Variables:
+          REGION: "eu-west-1"
+  ##### Types API lambdas #####
+  getQuestionTypeLambda:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambdas/types/getQuestionType.handler
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Description: 'Lambda function'
+      MemorySize: 128
+      Timeout: 30
+      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
+      Events:
+        getQuestionTypeLambdaEvent:
+          Type: Api
+          Properties:
+            Path: /question-type
+            Method: get
+            RestApiId: !Ref MyApi
+      Environment:
+        Variables:
+          REGION: "eu-west-1"
+  getAlgorithmTypeLambda:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambdas/types/getAlgorithmType.handler
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Description: 'Lambda function'
+      MemorySize: 128
+      Timeout: 30
+      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
+      Events:
+        getAlgorithmTypeLambdaEvent:
+          Type: Api
+          Properties:
+            Path: /algorithm-type
+            Method: get
+            RestApiId: !Ref MyApi
+      Environment:
+        Variables:
+          REGION: "eu-west-1"
+  ##### User API lambdas #####
+  deleteUserQuestionnaireLambda:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambdas/user/deleteQuestionnaire.handler
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Description: 'Lambda function'
+      MemorySize: 128
+      Timeout: 30
+      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
+      Events:
+        deleteUserQuestionnaireLambdaEvent:
+          Type: Api
+          Properties:
+            Path: /user/questionnaire/{id}
+            Method: delete
+            RestApiId: !Ref MyApi
+      Environment:
+        Variables:
+          REGION: "eu-west-1"
+  getUserQuestionnairesLambda:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambdas/user/getQuestionnaires.handler
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Description: 'Lambda function'
+      MemorySize: 128
+      Timeout: 30
+      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
+      Events:
+        getUserQuestionnairesLambdaEvent:
+          Type: Api
+          Properties:
+            Path: /user/questionnaires
+            Method: get
+            RestApiId: !Ref MyApi
+      Environment:
+        Variables:
+          REGION: "eu-west-1"
+  postUserQuestionnaireLambda:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambdas/user/postQuestionnaire.handler
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Description: 'Lambda function'
+      MemorySize: 128
+      Timeout: 30
+      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
+      Events:
+        postUserQuestionnaireLambdaEvent:
+          Type: Api
+          Properties:
+            Path: /user/questionnaire/{id}
+            Method: post
+            RestApiId: !Ref MyApi
+      Environment:
+        Variables:
+          REGION: "eu-west-1"
