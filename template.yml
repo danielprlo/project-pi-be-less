@@ -1,17 +1,17 @@
-#AWSTemplateFormatVersion: '2010-09-09'
-#Transform: 'AWS::Serverless-2016-10-31'
-#Description: Project pi be lesss
-#Resources:
-#  MyApi:
-#    Type: AWS::Serverless::Api
-#    Properties:
-#      Name: UserAPI
-#      StageName: Prod
-#      Description: API for FE user requests
-#      Cors:
-#        AllowMethods: "'POST, GET, DELETE, OPTIONS'"
-#        AllowHeaders: "'*'"
-#        AllowOrigin: "'*'"
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: Project pi be lesss
+Resources:
+  MyApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: UserAPI
+      StageName: Prod
+      Description: API for FE user requests
+      Cors:
+        AllowMethods: "'POST, GET, DELETE, OPTIONS'"
+        AllowHeaders: "'*'"
+        AllowOrigin: "'*'"
 #
 #  ##### Questions API lambdas really #####
 #  DeleteQuestionLambda:
