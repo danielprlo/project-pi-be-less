@@ -8,7 +8,7 @@ Resources:
       Name: UserAPI
       Mode: overwrite
       StageName: Prod
-      Description: API for FE user requests
+      Description: API for FE user requests here
       Cors:
         AllowMethods: "'POST, GET, DELETE, OPTIONS'"
         AllowHeaders: "'*'"
