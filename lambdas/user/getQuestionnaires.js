@@ -5,7 +5,6 @@ const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
 AWS.config.update({region: 'eu-west-1'});
 
 const handlerFunction = async (event, context) => {
-    const questionnaireId = event.pathParameters.id;
     const id = '12345';
 
     const params = {
@@ -13,11 +12,11 @@ const handlerFunction = async (event, context) => {
         KeyConditionExpression: '#pk = :pk and begins_with(#sk, :sk)',
         ExpressionAttributeNames:{
             "#pk": "pk",
-            "#sk": 'sk',
+            "#sk": "sk",
         },
         ExpressionAttributeValues: {
-            pk: 'USERID#'+id,
-            sk: 'QUESTIONNAIRE#',
+            ":pk": 'USERID#'+id,
+            ":sk": 'QUESTIONNAIRE#',
         }
     };
 
@@ -27,7 +26,7 @@ const handlerFunction = async (event, context) => {
     } catch (error) {
         return {
             statusCode: 400,
-            error: `Could not query: ${error.stack}`
+            body: `Could not query: ${error.stack}`
         };
     }
 };

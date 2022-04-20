@@ -28,7 +28,7 @@ const handlerFunction = async (event, context) => {
     } catch (error) {
         return {
             statusCode: 400,
-            error: `Could not query: ${error.stack}`
+            body: `Could not query: ${error.stack}`
         };
     }
 };
