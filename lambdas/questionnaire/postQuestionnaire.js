@@ -6,7 +6,7 @@ const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
 AWS.config.update({region: 'eu-west-1'});
 
 const handlerFunction = async (event, context) => {
-    const questionnaireId = uuid().v4();
+    const questionnaireId = uuid.v4();
     const userId = '12345';
     const parsedBody = JSON.parse(event.body);
 
