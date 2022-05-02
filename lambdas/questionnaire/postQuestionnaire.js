@@ -16,9 +16,7 @@ const handlerFunction = async (event, context) => {
             pk: 'USER#'+userId,
             sk: 'QUESTIONNAIRE#'+questionnaireId,
             name: parsedBody.name,
-            description: parsedBody.description,
-            type: parsedBody.type,
-            algorithm: parsedBody.algorithm,
+            description: parsedBody.description
         },
         ReturnValues: 'ALL_OLD',
     };
