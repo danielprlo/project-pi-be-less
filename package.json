@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/shake93/project-pi-be-less/issues"
   },
-  "homepage": "https://github.com/shake93/project-pi-be-less#readme"
+  "homepage": "https://github.com/shake93/project-pi-be-less#readme",
+  "dependencies": {
+    "uuid": "^8.3.2"
+  }
 }
