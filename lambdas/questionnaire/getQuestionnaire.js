@@ -5,6 +5,7 @@ const cors = require('../../middlewares/cors');
 AWS.config.update({region: 'eu-west-1'});
 
 const handlerFunction = async (event, context) => {
+    const userId = "12345";
     const params = {
         TableName: 'StudyData',
         KeyConditionExpression: '#pk = :pk and begins_with(#sk, :sk)',
@@ -13,8 +14,8 @@ const handlerFunction = async (event, context) => {
             "#sk": 'sk'
         },
         ExpressionAttributeValues: {
-            ":pk": "QUESTIONNAIRE#",
-            ":sk": "QUESTIONNAIRE"
+            ":pk": "USER#"+userId,
+            ":sk": "QUESTIONNAIRE#"
         }
     }
 
