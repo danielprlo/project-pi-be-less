@@ -258,10 +258,10 @@ Resources:
       Environment:
         Variables:
           REGION: "eu-west-1"
-  showUserQuestionnairesLambda:
+  showUserQuestionnaireLambda:
     Type: 'AWS::Serverless::Function'
     Properties:
-      Handler: lambdas/user/showQuestionnaires.handler
+      Handler: lambdas/user/showQuestionnaire.handler
       Runtime: nodejs12.x
       CodeUri: ./
       Description: 'Lambda function'
@@ -269,10 +269,10 @@ Resources:
       Timeout: 30
       Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
       Events:
-        showUserQuestionnairesLambdaEvent:
+        showUserQuestionnaireLambdaEvent:
           Type: Api
           Properties:
-            Path: /user/questionnaires/{id}
+            Path: /user/questionnaire/{id}
             Method: get
             RestApiId: !Ref MyApi
       Environment:
