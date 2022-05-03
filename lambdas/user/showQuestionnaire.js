@@ -10,7 +10,7 @@ const handlerFunction = async (event, context) => {
     const params = {
         TableName: 'StudyData',
         Key: {
-            'pk': 'USER#'+userId,
+            'pk': 'USERID#'+userId,
             'sk': 'QUESTIONNAIRE#'+questionnaireId,
         }
     };
