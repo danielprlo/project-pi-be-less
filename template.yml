@@ -13,6 +13,8 @@ Resources:
         AllowMethods: "'POST, GET, DELETE, OPTIONS'"
         AllowHeaders: "'*'"
         AllowOrigin: "'*'"
+        MaxAge: "'600'"
+        AllowCredentials: true
 
   ##### Questions API lambdas really #####
   DeleteQuestionLambda:
