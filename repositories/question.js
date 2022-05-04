@@ -23,7 +23,7 @@ const create = async (questionnaireId, questionId, name, description, details) =
     const params = {
         TableName: 'StudyData',
         Item: {
-            pk: '#QUESTIONNAIRE#'+questionnaireId,
+            pk: 'QUESTIONNAIRE#'+questionnaireId,
             sk: 'QUESTION#'+questionId,
             name: name,
             description: description,
