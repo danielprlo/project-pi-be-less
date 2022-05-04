@@ -12,7 +12,8 @@ const handlerFunction = async (event, context) => {
             questionId,
             parsedBody.name,
             parsedBody.description,
-            parsedBody.details
+            parsedBody.details,
+            parsedBody.type
         );
         return { statusCode: 200, body: JSON.stringify(data) };
     } catch (error) {

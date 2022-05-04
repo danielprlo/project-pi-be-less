@@ -9,10 +9,10 @@ const deleteQuestion = async (questionnaireId, questionId) => {
     }
 }
 
-const createQuestion = async (questionnaireId, questionId, name, description, details) => {
+const createQuestion = async (questionnaireId, questionId, name, description, details, type) => {
 
     try {
-        return await questionRepository.create(questionnaireId, questionId, name, description, details);
+        return await questionRepository.create(questionnaireId, questionId, name, description, details, type);
     } catch (error) {
         throw error;
     }

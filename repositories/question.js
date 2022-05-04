@@ -19,7 +19,7 @@ const del = async (questionnaireId, questionId) => {
     }
 }
 
-const create = async (questionnaireId, questionId, name, description, details) => {
+const create = async (questionnaireId, questionId, name, description, details, type) => {
     const params = {
         TableName: 'StudyData',
         Item: {
@@ -27,7 +27,8 @@ const create = async (questionnaireId, questionId, name, description, details) =
             sk: 'QUESTION#'+questionId,
             name: name,
             description: description,
-            details: details
+            details: details,
+            type: type
         },
         ReturnValues: 'ALL_OLD',
     };
