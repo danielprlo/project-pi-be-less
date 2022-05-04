@@ -9,12 +9,7 @@ Resources:
       Mode: overwrite
       StageName: Prod
       Description: API for FE user requests here
-      Cors:
-        AllowMethods: "'POST, GET, DELETE, OPTIONS'"
-        AllowHeaders: "'*'"
-        AllowOrigin: "'*'"
-        MaxAge: "'600'"
-        AllowCredentials: true
+      Cors: project-pi-fe-site.s3-website-eu-west-1.amazonaws.com
 
   ##### Questions API lambdas really #####
   DeleteQuestionLambda:
