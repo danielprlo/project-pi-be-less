@@ -2,7 +2,7 @@ const cors = require('../../middlewares/cors');
 const questionUseCase = require('../../use_cases/question');
 
 const handlerFunction = async (event, context) => {
-    const questionnaireId = event.pathParameters.questionnaireId;
+    const questionnaireId = event.pathParameters.id;
     const questionId = event.pathParameters.questionId;
 
     try {
