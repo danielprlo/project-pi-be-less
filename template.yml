@@ -241,6 +241,14 @@ Resources:
             Path: /user/questionnaires
             Method: get
             RestApiId: !Ref MyApi
+        Options:
+          Type: Api
+          Properties:
+            RestApiId: !Ref MyApi
+            Path: /user/questionnaires
+            Method: options
+            Auth:
+              ApiKeyRequired: false
       Environment:
         Variables:
           REGION: "eu-west-1"
