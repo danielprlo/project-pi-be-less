@@ -17,7 +17,7 @@ Resources:
       Cors:
         AllowMethods: "'POST, GET, DELETE, OPTIONS'"
         AllowHeaders: "'*'"
-        AllowOrigin: "'dnbjqdte2wiuk.cloudfront.net'"
+        AllowOrigin: [https://dnbjqdte2wiuk.cloudfront.net,http://localhost:8081]
         AllowCredentials: true
 
   ##### Questions API lambdas really #####
