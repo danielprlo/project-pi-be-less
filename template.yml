@@ -9,6 +9,11 @@ Resources:
       Mode: overwrite
       StageName: Prod
       Description: API for FE user requests here
+      Auth:
+        DefaultAuthorizer: MyCognitoAuthorizer
+        Authorizers:
+          MyCognitoAuthorizer:
+            UserPoolArn: arn:aws:cognito-idp:eu-west-1:258885766453:userpool/eu-west-1_UFKLlH1wi
       Cors:
         AllowMethods: "'POST, GET, DELETE, OPTIONS'"
         AllowHeaders: "'*'"
