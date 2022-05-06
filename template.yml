@@ -9,16 +9,10 @@ Resources:
       Mode: overwrite
       StageName: Prod
       Description: API for FE user requests here
-      Auth:
-        DefaultAuthorizer: MyCognitoAuthorizer
-        Authorizers:
-          MyCognitoAuthorizer:
-            UserPoolArn: arn:aws:cognito-idp:eu-west-1:258885766453:userpool/eu-west-1_UFKLlH1wi
       Cors:
         AllowMethods: "'POST, GET, DELETE, OPTIONS'"
         AllowHeaders: "'*'"
         AllowOrigin: "'*'"
-        AllowCredentials: true
 
   ##### Questions API lambdas really #####
   DeleteQuestionLambda:
@@ -238,17 +232,14 @@ Resources:
         getUserQuestionnairesLambdaEvent:
           Type: Api
           Properties:
+            Auth:
+              DefaultAuthorizer: MyCognitoAuthorizer
+              Authorizers:
+                MyCognitoAuthorizer:
+                  UserPoolArn: arn:aws:cognito-idp:eu-west-1:258885766453:userpool/eu-west-1_UFKLlH1wi
             Path: /user/questionnaires
             Method: get
             RestApiId: !Ref MyApi
-        Options:
-          Type: Api
-          Properties:
-            RestApiId: !Ref MyApi
-            Path: /user/questionnaires
-            Method: options
-            Auth:
-              ApiKeyRequired: false
       Environment:
         Variables:
           REGION: "eu-west-1"
