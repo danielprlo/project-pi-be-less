@@ -245,7 +245,6 @@ Resources:
           Type: Api
           Properties:
             Auth:
-              ApiKeyRequired: false
               Authorizer: NONE
             Path: /user/questionnaires
             Method: options
