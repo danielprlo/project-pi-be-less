@@ -1,11 +1,13 @@
 const AWS = require("aws-sdk");
 const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
 const cors = require('../../middlewares/cors');
+const { getCognitoSubId } = require('../../use_cases/cognito')
 
 AWS.config.update({region: 'eu-west-1'});
 
 const handlerFunction = async (event, context) => {
-    const userId = "12345";
+    const userId = getCognitoSubId(event);
+
     const params = {
         TableName: 'StudyData',
         KeyConditionExpression: '#pk = :pk and begins_with(#sk, :sk)',
