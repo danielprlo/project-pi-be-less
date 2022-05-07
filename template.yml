@@ -241,6 +241,15 @@ Resources:
             Path: /user/questionnaires
             Method: get
             RestApiId: !Ref MyApi
+        optionsUserQuestionnairesLambdaEvent:
+          Type: Api
+          Properties:
+            Auth:
+              ApiKeyRequired: false
+              Authorizer: NONE
+            Path: /user/questionnaires
+            Method: options
+            RestApiId: !Ref MyApi
       Environment:
         Variables:
           REGION: "eu-west-1"
