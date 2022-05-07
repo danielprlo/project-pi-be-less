@@ -14,10 +14,12 @@ Resources:
         Authorizers:
           MyCognitoAuthorizer:
             UserPoolArn: arn:aws:cognito-idp:eu-west-1:258885766453:userpool/eu-west-1_UFKLlH1wi
+        AddDefaultAuthorizerToCorsPreflight: false
       Cors:
         AllowMethods: "'POST, GET, DELETE, OPTIONS'"
         AllowHeaders: "'*'"
-        AllowOrigin: "'*'"
+        AllowOrigin: [https://dnbjqdte2wiuk.cloudfront.net,http://localhost:8081]
+        AllowCredentials: true
 
   ##### Questions API lambdas really #####
   DeleteQuestionLambda:
@@ -77,14 +79,6 @@ Resources:
             Path: /questionnaire/{id}/question/{questionId}
             Method: get
             RestApiId: !Ref MyApi
-        optionsQuestionLambdaEvent:
-          Type: Api
-          Properties:
-            Auth:
-              Authorizer: NONE
-            Path: /questionnaire/{id}/question/{questionId}
-            Method: options
-            RestApiId: !Ref MyApi
       Environment:
         Variables:
           REGION: "eu-west-1"
@@ -104,14 +98,6 @@ Resources:
           Properties:
             Path: /questionnaire/question/{questionnaireId}
             Method: get
-            RestApiId: !Ref MyApi
-        optionsQuestionnaireQuestionsLambdaEvent:
-          Type: Api
-          Properties:
-            Auth:
-              Authorizer: NONE
-            Path: /questionnaire/question/{questionnaireId}
-            Method: options
             RestApiId: !Ref MyApi
       Environment:
         Variables:
@@ -154,14 +140,6 @@ Resources:
             Path: /questionnaire
             Method: get
             RestApiId: !Ref MyApi
-        optionsQuestionnaireLambdaEvent:
-          Type: Api
-          Properties:
-            Auth:
-              Authorizer: NONE
-            Path: /questionnaire
-            Method: options
-            RestApiId: !Ref MyApi
       Environment:
         Variables:
           REGION: "eu-west-1"
@@ -202,14 +180,6 @@ Resources:
             Path: /questionnaire/{id}
             Method: get
             RestApiId: !Ref MyApi
-        optionsQuestionnaireLambdaEvent:
-          Type: Api
-          Properties:
-            Auth:
-              Authorizer: NONE
-            Path: /questionnaire/{id}
-            Method: options
-            RestApiId: !Ref MyApi
       Environment:
         Variables:
           REGION: "eu-west-1"
@@ -230,14 +200,6 @@ Resources:
           Properties:
             Path: /question-type
             Method: get
-            RestApiId: !Ref MyApi
-        optionsQuestionTypeLambdaEvent:
-          Type: Api
-          Properties:
-            Auth:
-              Authorizer: NONE
-            Path: /question-type
-            Method: options
             RestApiId: !Ref MyApi
       Environment:
         Variables:
@@ -280,14 +242,6 @@ Resources:
             Path: /user/questionnaires
             Method: get
             RestApiId: !Ref MyApi
-        optionsUserQuestionnairesLambdaEvent:
-          Type: Api
-          Properties:
-            Auth:
-              Authorizer: NONE
-            Path: /user/questionnaires
-            Method: options
-            RestApiId: !Ref MyApi
       Environment:
         Variables:
           REGION: "eu-west-1"
@@ -327,14 +281,6 @@ Resources:
           Properties:
             Path: /user/questionnaire/{id}
             Method: get
-            RestApiId: !Ref MyApi
-        optionsUserQuestionnaireLambdaEvent:
-          Type: Api
-          Properties:
-            Auth:
-              Authorizer: NONE
-            Path: /user/questionnaire/{id}
-            Method: options
             RestApiId: !Ref MyApi
       Environment:
         Variables:
