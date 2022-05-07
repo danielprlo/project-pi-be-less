@@ -78,6 +78,14 @@ Resources:
             Path: /questionnaire/{id}/question/{questionId}
             Method: get
             RestApiId: !Ref MyApi
+        optionsQuestionLambdaEvent:
+          Type: Api
+          Properties:
+            Auth:
+              Authorizer: NONE
+            Path: /questionnaire/{id}/question/{questionId}
+            Method: options
+            RestApiId: !Ref MyApi
       Environment:
         Variables:
           REGION: "eu-west-1"
@@ -97,6 +105,14 @@ Resources:
           Properties:
             Path: /questionnaire/question/{questionnaireId}
             Method: get
+            RestApiId: !Ref MyApi
+        optionsQuestionnaireQuestionsLambdaEvent:
+          Type: Api
+          Properties:
+            Auth:
+              Authorizer: NONE
+            Path: /questionnaire/question/{questionnaireId}
+            Method: options
             RestApiId: !Ref MyApi
       Environment:
         Variables:
@@ -178,6 +194,14 @@ Resources:
           Properties:
             Path: /questionnaire/{id}
             Method: get
+            RestApiId: !Ref MyApi
+        optionsQuestionnaireLambdaEvent:
+          Type: Api
+          Properties:
+            Auth:
+              Authorizer: NONE
+            Path: /questionnaire/{id}
+            Method: options
             RestApiId: !Ref MyApi
       Environment:
         Variables:
@@ -296,6 +320,14 @@ Resources:
           Properties:
             Path: /user/questionnaire/{id}
             Method: get
+            RestApiId: !Ref MyApi
+        optionsUserQuestionnaireLambdaEvent:
+          Type: Api
+          Properties:
+            Auth:
+              Authorizer: NONE
+            Path: /user/questionnaire/{id}
+            Method: options
             RestApiId: !Ref MyApi
       Environment:
         Variables:
