@@ -200,6 +200,14 @@ Resources:
             Path: /question-type
             Method: get
             RestApiId: !Ref MyApi
+        optionsQuestionTypeLambdaEvent:
+          Type: Api
+          Properties:
+            Auth:
+              Authorizer: NONE
+            Path: /question-type
+            Method: options
+            RestApiId: !Ref MyApi
       Environment:
         Variables:
           REGION: "eu-west-1"
