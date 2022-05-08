@@ -19,7 +19,7 @@ const show = async(userId, questionnaireId) => {
         }
     };
     try {
-        await docClient.get(params).promise();
+        return await docClient.get(params).promise();
     } catch (error) {
         throw error;
     }
