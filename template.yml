@@ -299,7 +299,7 @@ Resources:
         getUserQuestionnaireLinkLambdaEvent:
           Type: Api
           Properties:
-            Path: /user/questionnaires/{id}/link
+            Path: /user/questionnaire/{id}/link
             Method: get
             RestApiId: !Ref MyApi
       Environment:
