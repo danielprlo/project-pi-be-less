@@ -16,7 +16,7 @@ const handlerFunction = async (event, context) => {
             return { statusCode: 404, body: "questionnaire not found" };
         }
         if (questionnaire.Item.hasOwnProperty("link") && questionnaire.Item.link !== null) {
-            return { statusCode: 200, body: JSON.stringify({link: data.Item.link}) };
+            return { statusCode: 200, body: JSON.stringify({link: questionnaire.Item.link}) };
         } else {
             questionnaire.Item.link = uuid.v4();
             const updatedQuestionnaire = await questionnaireUseCase.updateQuestionnaire(questionnaire.Item);
