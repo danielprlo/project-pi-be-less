@@ -7,7 +7,8 @@ const create = async(questionnaireId, questionId, value, attemptId) => {
         TableName: 'StudyData',
         Item: {
             pk: 'QUESTIONNAIRE#'+questionnaireId,
-            sk: questionId+'#ANSWER#'+attemptId,
+            sk: 'ANSWER#'+attemptId,
+            questionId: questionId,
             value: value
         },
         ReturnValues: 'ALL_OLD',
