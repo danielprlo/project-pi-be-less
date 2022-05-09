@@ -1,8 +1,8 @@
 const AWS = require("aws-sdk");
 const cors = require('../../middlewares/cors');
 const {getCognitoSubId} = require("../../use_cases/cognito");
-const {generateLinkFromHash} = require("../../use_cases/link");
-const uuid = require('uuid');
+const {generateLinkFromQuestionnaireId} = require("../../use_cases/link");
+
 const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
 AWS.config.update({region: 'eu-west-1'});
 const questionnaireUseCase = require('../../use_cases/questionnaire');
@@ -20,7 +20,7 @@ const handlerFunction = async (event, context) => {
         if (questionnaire.Item.hasOwnProperty("link") && questionnaire.Item.link !== null) {
             return { statusCode: 200, body: JSON.stringify({link: questionnaire.Item.link}) };
         } else {
-            questionnaire.Item.link = generateLinkFromHash(uuid.v4());
+            questionnaire.Item.link = generateLinkFromQuestionnaireId(questionnaireId);
             const updatedQuestionnaire = await questionnaireUseCase.updateQuestionnaire(questionnaire.Item);
             return { statusCode: 200, body: JSON.stringify({link: updatedQuestionnaire.Item.link}) };
         }

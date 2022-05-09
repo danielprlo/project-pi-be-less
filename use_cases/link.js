@@ -1,5 +1,6 @@
-const generateLinkFromHash = (hash) => {
-    return 'http://localhost:8081/fill-questionnaire/'+hash;
+const uuid = require('uuid');
+const generateLinkFromQuestionnaireId = (questionnaireId) => {
+    return 'http://localhost:8081/fill-questionnaire/'+questionnaireId+'/'+uuid.v4();
 }
 
-module.exports = { generateLinkFromHash }
+module.exports = { generateLinkFromQuestionnaireId }
