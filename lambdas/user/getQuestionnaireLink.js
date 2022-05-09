@@ -8,8 +8,8 @@ AWS.config.update({region: 'eu-west-1'});
 const questionnaireUseCase = require('../../use_cases/questionnaire');
 
 const handlerFunction = async (event, context) => {
-    const userId = '12345';
-    const questionnaireId = '1d045813-02aa-4be3-b39f-c7d39e41ba82';
+    const userId = getCognitoSubId(event);
+    const questionnaireId = event.pathParameters.id;
 
     try {
         const questionnaire = await questionnaireUseCase.showQuestionnaire(userId, questionnaireId);
