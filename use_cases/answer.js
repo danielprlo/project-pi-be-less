@@ -1,12 +1,14 @@
 const answerRepository = require('../repositories/answer');
 
 const saveAnswers = async (questionnaireId, answers, attemptId) => {
+    let stored = 0;
     try {
-        Object.keys(answers, attemptId).map(async function (questionId) {
-            await answerRepository.create(questionnaireId, questionId, answers[questionId], attemptId);
-        });
+        for (const answer of answers) {
+            await answerRepository.create(questionnaireId, answer.questionId, answer.answer, attemptId);
+            stored++;
+        }
 
-        return true;
+        return stored;
     } catch (error) {
         throw error;
     }

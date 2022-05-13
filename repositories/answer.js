@@ -7,7 +7,7 @@ const create = async(questionnaireId, questionId, value, attemptId) => {
         TableName: 'StudyData',
         Item: {
             pk: 'QUESTIONNAIRE#'+questionnaireId,
-            sk: 'ANSWER#'+attemptId,
+            sk: 'ANSWER#'+attemptId+''+questionId,
             questionId: questionId,
             value: value
         },
@@ -17,6 +17,7 @@ const create = async(questionnaireId, questionId, value, attemptId) => {
     try {
         return await docClient.put(params).promise();
     } catch (error) {
+        console.log('error', error);
         throw error;
     }
 }
