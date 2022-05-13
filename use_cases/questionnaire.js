@@ -12,8 +12,12 @@ const showQuestionnaire = async (userId, questionnaireId) => {
     }
 }
 
-const deleteQuestionnaire = async (questionnaireId) => {
-
+const deleteQuestionnaire = async (questionnaireId, userId) => {
+    try {
+        return await questionnaireRepository.del(questionnaireId, userId);
+    } catch (error) {
+        throw error;
+    }
 }
 
 const updateQuestionnaire = async (questionnaire) => {
@@ -26,5 +30,6 @@ const updateQuestionnaire = async (questionnaire) => {
 
 module.exports = {
     showQuestionnaire,
-    updateQuestionnaire
+    updateQuestionnaire,
+    deleteQuestionnaire
 }

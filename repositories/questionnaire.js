@@ -2,8 +2,20 @@ const AWS = require("aws-sdk");
 const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
 AWS.config.update({region: 'eu-west-1'});
 
-const del = async (questionnaireId, questionId) => {
+const del = async (questionnaireId, userId) => {
+    const params = {
+        TableName: 'StudyData',
+        Key: {
+            pk: 'USERID#'+userId,
+            sk: 'QUESTIONNAIRE#'+questionnaireId,
+        }
+    };
 
+    try {
+        return await docClient.delete(params).promise();
+    } catch (error) {
+        throw error
+    }
 }
 
 const create = async (questionnaireId, questionId, name, description, details, type) => {
