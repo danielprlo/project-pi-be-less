@@ -27,4 +27,12 @@ const showQuestion = async (questionnaireId, questionId) => {
     }
 }
 
-module.exports = { deleteQuestion, createQuestion, showQuestion }
+const getQuestions = async (questionnaireId) => {
+    try {
+        return await questionRepository.get(questionnaireId);
+    } catch (error) {
+        throw error;
+    }
+}
+
+module.exports = { deleteQuestion, createQuestion, showQuestion, getQuestions }

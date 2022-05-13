@@ -1,5 +1,6 @@
 const AWS = require("aws-sdk");
 const cors = require('../../middlewares/cors');
+const { getQuestions } = require("../../use_cases/question");
 
 const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
 AWS.config.update({region: 'eu-west-1'});
@@ -7,21 +8,8 @@ AWS.config.update({region: 'eu-west-1'});
 const handlerFunction = async (event, context) => {
     const questionnaireId = event.pathParameters.questionnaireId;
 
-    const params = {
-        TableName: 'StudyData',
-        KeyConditionExpression: '#pk = :pk and begins_with(#sk, :sk)',
-        ExpressionAttributeNames:{
-            "#pk": "pk",
-            "#sk": 'sk',
-        },
-        ExpressionAttributeValues: {
-            ":pk": "QUESTIONNAIRE#"+questionnaireId,
-            ":sk": "QUESTION#",
-        }
-    };
-
     try {
-        const data = await docClient.query(params).promise();
+        const data = await getQuestions(questionnaireId);
         return { statusCode: 200, body: JSON.stringify(data) };
     } catch (error) {
         return {

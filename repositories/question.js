@@ -61,4 +61,26 @@ const show = async(questionnaireId, questionId) => {
     }
 }
 
-module.exports = { del, create, show }
+const get = async(questionnaireId) => {
+    const params = {
+        TableName: 'StudyData',
+        KeyConditionExpression: '#pk = :pk and begins_with(#sk, :sk)',
+        ExpressionAttributeNames:{
+            "#pk": "pk",
+            "#sk": 'sk',
+        },
+        ExpressionAttributeValues: {
+            ":pk": "QUESTIONNAIRE#"+questionnaireId,
+            ":sk": "QUESTION#",
+        }
+    };
+
+    try {
+        return await docClient.query(params).promise();
+    } catch (error) {
+        throw error;
+    }
+
+}
+
+module.exports = { del, create, show, get }
