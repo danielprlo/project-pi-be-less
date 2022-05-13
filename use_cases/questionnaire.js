@@ -8,9 +8,9 @@ const getQuestionnaires = async (userId) => {
     }
 }
 
-const showQuestionnaire = async (userId, questionnaireId) => {
+const showQuestionnaire = async (questionnaireId, userId) => {
     try {
-        return  await questionnaireRepository.show(userId, questionnaireId);
+        return await questionnaireRepository.show(questionnaireId, userId);
     } catch (error) {
         throw error;
     }

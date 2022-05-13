@@ -39,7 +39,7 @@ const create = async (questionnaireId, userId, parsedBody) => {
     }
 }
 
-const show = async(userId, questionnaireId) => {
+const show = async(questionnaireId, userId) => {
     const params = {
         TableName: 'StudyData',
         Key: {
