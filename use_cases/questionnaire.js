@@ -1,7 +1,11 @@
 const questionnaireRepository = require('../repositories/questionnaire');
 
-const getQuestionnaire = async (userId) => {
-
+const getQuestionnaires = async (userId) => {
+    try {
+        return await questionnaireRepository.get(userId);
+    } catch (error) {
+        throw error;
+    }
 }
 
 const showQuestionnaire = async (userId, questionnaireId) => {
@@ -31,5 +35,6 @@ const updateQuestionnaire = async (questionnaire) => {
 module.exports = {
     showQuestionnaire,
     updateQuestionnaire,
-    deleteQuestionnaire
+    deleteQuestionnaire,
+    getQuestionnaires
 }
