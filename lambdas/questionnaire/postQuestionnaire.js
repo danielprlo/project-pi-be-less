@@ -1,7 +1,7 @@
 const AWS = require("aws-sdk");
 const cors = require('../../middlewares/cors');
 const {getCognitoSubId} = require("../../use_cases/cognito");
-
+const { postQuestionnaire } = require('../../use_cases/questionnaire');
 const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
 AWS.config.update({region: 'eu-west-1'});
 
@@ -10,21 +10,8 @@ const handlerFunction = async (event, context) => {
     const userId = getCognitoSubId(event);
     const parsedBody = JSON.parse(event.body);
 
-    const params = {
-        TableName: 'StudyData',
-        Item: {
-            pk: 'USERID#'+userId,
-            sk: 'QUESTIONNAIRE#'+questionnaireId,
-            name: parsedBody.name,
-            description: parsedBody.description,
-            type: parsedBody.type,
-            details: parsedBody.details
-        },
-        ReturnValues: 'ALL_OLD',
-    };
-
     try {
-        const data = await docClient.put(params).promise();
+        const data = postQuestionnaire(questionnaireId, userId, parsedBody)
         return { statusCode: 200, body: JSON.stringify(data) };
     } catch (error) {
         return {

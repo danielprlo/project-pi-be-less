@@ -18,8 +18,25 @@ const del = async (questionnaireId, userId) => {
     }
 }
 
-const create = async (questionnaireId, questionId, name, description, details, type) => {
+const create = async (questionnaireId, userId, parsedBody) => {
+    const params = {
+        TableName: 'StudyData',
+        Item: {
+            pk: 'USERID#'+userId,
+            sk: 'QUESTIONNAIRE#'+questionnaireId,
+            name: parsedBody.name,
+            description: parsedBody.description,
+            type: parsedBody.type,
+            details: parsedBody.details
+        },
+        ReturnValues: 'ALL_OLD',
+    };
 
+    try {
+        return await docClient.put(params).promise();
+    } catch (error) {
+        throw error;
+    }
 }
 
 const show = async(userId, questionnaireId) => {

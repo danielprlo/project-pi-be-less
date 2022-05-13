@@ -32,9 +32,18 @@ const updateQuestionnaire = async (questionnaire) => {
     }
 }
 
+const postQuestionnaire = async (questionnaireId, userId, parsedBody) => {
+    try {
+        return await questionnaireRepository.create(questionnaireId, userId, parsedBody);
+    } catch (error) {
+        throw error;
+    }
+}
+
 module.exports = {
     showQuestionnaire,
     updateQuestionnaire,
     deleteQuestionnaire,
-    getQuestionnaires
+    getQuestionnaires,
+    postQuestionnaire
 }
