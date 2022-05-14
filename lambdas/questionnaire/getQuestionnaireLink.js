@@ -20,9 +20,10 @@ const handlerFunction = async (event, context) => {
         if (questionnaire.Item.hasOwnProperty("link") && questionnaire.Item.link !== null) {
             return { statusCode: 200, body: JSON.stringify({link: questionnaire.Item.link}) };
         } else {
-            questionnaire.Item.link = generateLinkFromQuestionnaireId(questionnaireId);
-            const updatedQuestionnaire = await questionnaireUseCase.updateQuestionnaire(questionnaire.Item);
-            return { statusCode: 200, body: JSON.stringify({link: updatedQuestionnaire.Item.link}) };
+            const link = generateLinkFromQuestionnaireId(questionnaireId);
+            questionnaire.Item.link = link;
+            await questionnaireUseCase.updateQuestionnaire(questionnaire.Item);
+            return { statusCode: 200, body: JSON.stringify({link: link}) };
         }
     } catch (error) {
         return {
