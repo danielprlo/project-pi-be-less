@@ -164,7 +164,7 @@ Resources:
       Environment:
         Variables:
           REGION: "eu-west-1"
-  postUserQuestionnaireLambda:
+  postQuestionnaireLambda:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: lambdas/questionnaire/postQuestionnaire.handler
@@ -175,7 +175,7 @@ Resources:
       Timeout: 30
       Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
       Events:
-        postUserQuestionnaireLambdaEvent:
+        postQuestionnaireLambdaEvent:
           Type: Api
           Properties:
             Path: /questionnaire/{id}

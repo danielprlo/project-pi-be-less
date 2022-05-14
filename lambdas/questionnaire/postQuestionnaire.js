@@ -11,7 +11,7 @@ const handlerFunction = async (event, context) => {
     const parsedBody = JSON.parse(event.body);
 
     try {
-        const data = postQuestionnaire(questionnaireId, userId, parsedBody)
+        const data = await postQuestionnaire(questionnaireId, userId, parsedBody)
         return { statusCode: 200, body: JSON.stringify(data) };
     } catch (error) {
         return {
