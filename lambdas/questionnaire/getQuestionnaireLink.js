@@ -12,7 +12,7 @@ const handlerFunction = async (event, context) => {
     const questionnaireId = event.pathParameters.id;
 
     try {
-        const questionnaire = await questionnaireUseCase.showQuestionnaire(userId, questionnaireId);
+        const questionnaire = await questionnaireUseCase.showQuestionnaire(questionnaireId, userId);
 
         if (!questionnaire) {
             return { statusCode: 404, body: "questionnaire not found" };
