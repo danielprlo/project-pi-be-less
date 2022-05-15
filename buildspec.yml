@@ -6,6 +6,9 @@ phases:
     commands:
       - npm install
       - aws cloudformation package --template-file template.yml --s3-bucket project-pi-be-less-codepipeline-bucket --output-template-file outputtemplate.yml
+  post_build:
+    commands:
+      - npm test
 artifacts:
   type: zip
   files:

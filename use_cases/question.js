@@ -3,7 +3,7 @@ const questionRepository = require('../repositories/question');
 const deleteQuestion = async (questionnaireId, questionId) => {
 
     try {
-        await questionRepository.del(questionnaireId, questionId);
+        return await questionRepository.del(questionnaireId, questionId);
     } catch (error) {
         throw error;
     }
