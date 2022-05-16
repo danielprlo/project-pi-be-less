@@ -1,9 +1,5 @@
-const AWS = require("aws-sdk");
 const cors = require('../../middlewares/cors');
 const { getTypes } = require("../../use_cases/questionTypes");
-
-const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
-AWS.config.update({region: 'eu-west-1'});
 
 const handlerFunction = async (event, context) => {
     try {

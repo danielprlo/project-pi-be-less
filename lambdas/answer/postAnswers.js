@@ -4,8 +4,9 @@ const { saveAnswers } = require('../../use_cases/answer')
 
 const handlerFunction = async (event, context) => {
     const questionnaireId = event.pathParameters.id;
-    const attemptId = uuid.v4();
-    const parsedBody = JSON.parse(event.body);
+    const attemptId       = uuid.v4();
+    const parsedBody      = JSON.parse(event.body);
+
     try {
         const data = await saveAnswers(questionnaireId, parsedBody, attemptId);
         return { statusCode: 200, body: JSON.stringify(data) };

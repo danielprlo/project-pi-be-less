@@ -1,12 +1,9 @@
-const AWS = require("aws-sdk");
 const cors = require('../../middlewares/cors');
 const { getCognitoSubId } = require('../../use_cases/cognito')
-const {deleteQuestionnaire} = require('../../use_cases/questionnaire');
-const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
-AWS.config.update({region: 'eu-west-1'});
+const { deleteQuestionnaire } = require('../../use_cases/questionnaire');
 
 const handlerFunction = async (event, context) => {
-    const userId = getCognitoSubId(event);
+    const userId          = getCognitoSubId(event);
     const questionnaireId = event.pathParameters.id;
 
     try {

@@ -1,7 +1,7 @@
 const cors = async (result) => {
-    const body = result.body;
+    const body       = result.body;
     const statusCode = result.statusCode;
-    const headers = {
+    const headers    = {
         "Content-Type": "application/json",
         "Access-Control-Allow-Headers" : "Content-Type",
         "Access-Control-Allow-Origin": "*",

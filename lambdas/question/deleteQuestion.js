@@ -3,7 +3,7 @@ const questionUseCase = require('../../use_cases/question');
 
 const handlerFunction = async (event, context) => {
     const questionnaireId = event.pathParameters.id;
-    const questionId = event.pathParameters.questionId;
+    const questionId      = event.pathParameters.questionId;
 
     try {
         const data = await questionUseCase.deleteQuestion(questionnaireId, questionId);

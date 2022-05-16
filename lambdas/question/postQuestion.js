@@ -3,8 +3,8 @@ const questionUseCase = require('../../use_cases/question');
 
 const handlerFunction = async (event, context) => {
     const questionnaireId = event.pathParameters.id;
-    const questionId = event.pathParameters.questionId;
-    const parsedBody = JSON.parse(event.body);
+    const questionId      = event.pathParameters.questionId;
+    const parsedBody      = JSON.parse(event.body);
 
     try {
         const data = await questionUseCase.createQuestion(

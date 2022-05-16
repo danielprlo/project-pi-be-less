@@ -2,9 +2,6 @@ const AWS = require("aws-sdk");
 const cors = require('../../middlewares/cors');
 const { getQuestions } = require("../../use_cases/question");
 
-const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
-AWS.config.update({region: 'eu-west-1'});
-
 const handlerFunction = async (event, context) => {
     const questionnaireId = event.pathParameters.questionnaireId;
 

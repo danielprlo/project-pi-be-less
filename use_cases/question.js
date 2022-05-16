@@ -1,7 +1,6 @@
 const questionRepository = require('../repositories/question');
 
 const deleteQuestion = async (questionnaireId, questionId) => {
-
     try {
         return await questionRepository.del(questionnaireId, questionId);
     } catch (error) {
@@ -10,7 +9,6 @@ const deleteQuestion = async (questionnaireId, questionId) => {
 }
 
 const createQuestion = async (questionnaireId, questionId, name, description, details, type) => {
-
     try {
         return await questionRepository.create(questionnaireId, questionId, name, description, details, type);
     } catch (error) {
@@ -19,7 +17,6 @@ const createQuestion = async (questionnaireId, questionId, name, description, de
 }
 
 const showQuestion = async (questionnaireId, questionId) => {
-
     try {
         return await questionRepository.show(questionnaireId, questionId);
     } catch (error) {
