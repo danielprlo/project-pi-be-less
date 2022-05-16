@@ -1,7 +1,7 @@
 const AWS = require("aws-sdk");
 const cors = require('../../middlewares/cors');
-const {getCognitoSubId} = require("../../use_cases/cognito");
-const {generateLinkFromQuestionnaireId} = require("../../use_cases/link");
+const { getCognitoSubId } = require("../../use_cases/cognito");
+const { generateLinkFromQuestionnaireId } = require("../../use_cases/link");
 
 const docClient = new AWS.DynamoDB.DocumentClient({apiVersion: '2012-08-10'});
 AWS.config.update({region: 'eu-west-1'});

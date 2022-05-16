@@ -9,7 +9,7 @@ describe('Answer use case', () => {
     jest.clearAllMocks();
   });
 
-  describe('get action', () => {
+  describe('create action', () => {
     it('Should return true', async () => {
       const promise = new Promise((resolve) => resolve());
       const createAnswerRepoSpy = jest.spyOn(repository, 'create').mockImplementation(() => promise);
