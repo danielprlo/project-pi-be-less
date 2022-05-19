@@ -7,7 +7,9 @@ const handlerFunction = async (event, context) => {
 
     try {
         const userId = await getQuestionnaireUserFromId(questionnaireId);
+        console.log('da userid', userId);
         const data = await showQuestionnaire(questionnaireId, userId);
+        console.log(questionnaireId, userId, data);
         return { statusCode: 200, body: JSON.stringify(data) };
     } catch (error) {
         return {
