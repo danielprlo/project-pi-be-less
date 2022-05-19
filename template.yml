@@ -224,29 +224,6 @@ Resources:
       Environment:
         Variables:
           REGION: "eu-west-1"
-  ##### Answers API lambdas #####
-  postAnswersLambda:
-    Type: 'AWS::Serverless::Function'
-    Properties:
-      Handler: lambdas/answer/postAnswers.handler
-      Runtime: nodejs12.x
-      CodeUri: ./
-      Description: 'Lambda function'
-      MemorySize: 128
-      Timeout: 30
-      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
-      Events:
-        postAnswersLambdaEvent:
-          Type: Api
-          Properties:
-            Path: /questionnaire/{id}/answers
-            Auth:
-              Authorizer: NONE
-            Method: post
-            RestApiId: !Ref MyApi
-      Environment:
-        Variables:
-          REGION: "eu-west-1"
 
   ##### Public API lambdas #####
   getPublicQuestionnaireQuestionsLambda:
@@ -271,7 +248,7 @@ Resources:
       Environment:
         Variables:
           REGION: "eu-west-1"
-  ##### Public API lambdas #####
+
   showPublicQuestionnaireLambda:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -290,6 +267,29 @@ Resources:
             Auth:
               Authorizer: NONE
             Method: get
+            RestApiId: !Ref MyApi
+      Environment:
+        Variables:
+          REGION: "eu-west-1"
+
+  postAnswersLambda:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambdas/answer/postAnswers.handler
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Description: 'Lambda function'
+      MemorySize: 128
+      Timeout: 30
+      Role: 'arn:aws:iam::258885766453:role/LambdaDynamoDBRole'
+      Events:
+        postAnswersLambdaEvent:
+          Type: Api
+          Properties:
+            Path: /public/questionnaire/{id}/answers
+            Auth:
+              Authorizer: NONE
+            Method: post
             RestApiId: !Ref MyApi
       Environment:
         Variables:
