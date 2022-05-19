@@ -260,10 +260,10 @@ Resources:
       Events:
         getPublicQuestionnaireQuestionsLambdaEvent:
           Type: Api
-          Authorizer: NONE
           Properties:
             Path: /public/questionnaire/{id}/questions
             Method: get
+            Auth: NONE
             RestApiId: !Ref MyApi
       Environment:
         Variables:
@@ -282,9 +282,9 @@ Resources:
       Events:
         showPublicQuestionnaireLambdaEvent:
           Type: Api
-          Authorizer: NONE
           Properties:
             Path: /public/questionnaire/{id}
+            Auth: NONE
             Method: get
             RestApiId: !Ref MyApi
       Environment:
