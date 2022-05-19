@@ -6,7 +6,7 @@ const handlerFunction = async (event, context) => {
     const questionnaireId = event.pathParameters.id;
 
     try {
-        const userId = getQuestionnaireUserFromId(questionnaireId);
+        const userId = await getQuestionnaireUserFromId(questionnaireId);
         const data = await showQuestionnaire(questionnaireId, userId);
         return { statusCode: 200, body: JSON.stringify(data) };
     } catch (error) {
