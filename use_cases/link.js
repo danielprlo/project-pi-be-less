@@ -22,10 +22,10 @@ const getQuestionnaireUserFromId = async(questionnaireId) => {
 
     console.log('Da item', item);
     console.log('Da item', item.Items);
-    return item.Items[0].sk;
-    if(item.Items) {
-        console.log('returning', item.Items[0].sk);
 
+    return item.Items[0].sk;
+    if(item.Items.length > 0) {
+        return item.Items[0].sk;
     }
 
     return '';

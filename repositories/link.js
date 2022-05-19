@@ -7,7 +7,7 @@ const save = async (questionnaireId, userId) => {
     TableName: 'StudyData',
     Item: {
       pk: 'LINK#'+questionnaireId,
-      sk: 'USER#'+userId,
+      sk: userId,
     },
     ReturnValues: 'ALL_OLD',
   };
