@@ -263,7 +263,6 @@ Resources:
           Properties:
             Path: /public/questionnaire/{id}/questions
             Method: get
-            Auth: NONE
             RestApiId: !Ref MyApi
       Environment:
         Variables:
@@ -284,7 +283,8 @@ Resources:
           Type: Api
           Properties:
             Path: /public/questionnaire/{id}
-            Auth: NONE
+            Auth:
+              Authorizer: NONE
             Method: get
             RestApiId: !Ref MyApi
       Environment:
