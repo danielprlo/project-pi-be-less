@@ -20,7 +20,6 @@ const save = async (questionnaireId, userId) => {
 }
 
 const get = async(questionnaireId) => {
-  console.log('da linkquery', "LINK#"+questionnaireId)
   const params = {
     TableName: 'StudyData',
     KeyConditionExpression: '#pk = :pk',

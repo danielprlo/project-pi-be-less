@@ -11,19 +11,13 @@ const generateLinkFromQuestionnaireId = async(questionnaireId, userId) => {
 }
 
 const getQuestionnaireUserFromId = async(questionnaireId) => {
-    console.log('Goign to do the try')
     let item;
     try {
-        console.log('calling it');
         item = await linkRepo.get(questionnaireId);
     } catch (error) {
         throw error;
     }
 
-    console.log('Da item', item);
-    console.log('Da item', item.Items);
-
-    return item.Items[0].sk;
     if(item.Items.length > 0) {
         return item.Items[0].sk;
     }
