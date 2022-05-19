@@ -16,7 +16,7 @@ const handlerFunction = async (event, context) => {
         if (questionnaire.Item.hasOwnProperty("link") && questionnaire.Item.link !== null) {
             return { statusCode: 200, body: JSON.stringify({link: questionnaire.Item.link}) };
         } else {
-            const link = generateLinkFromQuestionnaireId(questionnaireId, userId);
+            const link = await generateLinkFromQuestionnaireId(questionnaireId, userId);
             questionnaire.Item.link = link;
             await questionnaireUseCase.updateQuestionnaire(questionnaire.Item);
             return { statusCode: 200, body: JSON.stringify({link: link}) };
