@@ -36,14 +36,14 @@ const deleteAllQuestions = async (questionnaireId) => {
     try {
         const questions = await questionRepository.get(questionnaireId);
         if (questions.Items.length > 0) {
-            questions.Items.forEach(async question => {
+            await Promise.all(questions.Items).then(question => {
                 console.log('this is going to be deleted');
                 console.log(question.pk.replace('QUESTIONNAIRE#', ''));
                 console.log(question.sk.replace('QUESTION#', ''));
-                await questionRepository.del(
+                questionRepository.del(
                     question.pk.replace('QUESTIONNAIRE#', ''),
                     question.sk.replace('QUESTION#', ''));
-            })
+            });
         }
     } catch (error) {
         throw error;
