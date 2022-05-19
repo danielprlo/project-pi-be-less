@@ -37,11 +37,12 @@ const deleteAllQuestions = async (questionnaireId) => {
         const questions = await questionRepository.get(questionnaireId);
         console.log('da questions', questions);
         if (questions.Items.length > 0) {
-            for (const question in questions.Items) {
-                console.log('da question', question);
+            questions.Items.forEach(async question => {
+                console.log('da new question', question);
                 const questionId = question.pk;
+                console.log('da question id', questionId);
                 await questionRepository.del(questionnaireId, questionId);
-            }
+            })
         }
     } catch (error) {
         throw error;
