@@ -11,8 +11,6 @@ const del = async (questionnaireId, questionId) => {
         }
     };
 
-    console.log('params query', params);
-
     try {
         await docClient.delete(params).promise();
         return true;
