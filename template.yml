@@ -260,6 +260,7 @@ Resources:
       Events:
         getPublicQuestionnaireQuestionsLambdaEvent:
           Type: Api
+          Authorizer: NONE
           Properties:
             Path: /public/questionnaire/{id}/questions
             Method: get
@@ -281,6 +282,7 @@ Resources:
       Events:
         showPublicQuestionnaireLambdaEvent:
           Type: Api
+          Authorizer: NONE
           Properties:
             Path: /public/questionnaire/{id}
             Method: get
