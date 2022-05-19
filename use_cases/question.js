@@ -35,12 +35,9 @@ const getQuestions = async (questionnaireId) => {
 const deleteAllQuestions = async (questionnaireId) => {
     try {
         const questions = await questionRepository.get(questionnaireId);
-        console.log('da questions', questions);
         if (questions.Items.length > 0) {
             questions.Items.forEach(async question => {
-                console.log('da new question', question);
-                const questionId = question.pk;
-                console.log('da question id', questionId);
+                const questionId = question.sk;
                 await questionRepository.del(questionnaireId, questionId);
             })
         }
