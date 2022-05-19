@@ -20,6 +20,7 @@ const save = async (questionnaireId, userId) => {
 }
 
 const get = async(questionnaireId) => {
+  console.log('da linkquery', "LINK#"+questionnaireId)
   const params = {
     TableName: 'StudyData',
     KeyConditionExpression: '#pk = :pk',
@@ -32,7 +33,7 @@ const get = async(questionnaireId) => {
   }
 
   try {
-    return await docClient.query(params).promise();
+    return await docClient.get(params).promise();
   } catch (error) {
     throw error;
   }
