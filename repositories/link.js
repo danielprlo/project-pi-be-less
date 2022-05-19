@@ -33,7 +33,7 @@ const get = async(questionnaireId) => {
   }
 
   try {
-    return await docClient.get(params).promise();
+    return await docClient.query(params).promise();
   } catch (error) {
     throw error;
   }
