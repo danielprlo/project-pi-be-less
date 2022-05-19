@@ -1,13 +1,13 @@
 const cors = require('../../middlewares/cors');
-const { getCognitoSubId } = require("../../use_cases/cognito");
-const { showQuestionnaireWithoutUserId } = require('../../use_cases/questionnaire')
-const { getQuestionnaireIdFromLink } = require('../../use_cases/link');
+const { getQuestionnaireUserFromId } = require('../../use_cases/link')
+const { showQuestionnaire } = require('../../use_cases/questionnaire')
+
 const handlerFunction = async (event, context) => {
     const questionnaireId = event.pathParameters.id;
 
     try {
-        const questionnaireIdFromLink = getQuestionnaireIdFromLink(questionnaireId);
-        const data = await showQuestionnaireWithoutUserId(questionnaireIdFromLink);
+        const userId = getQuestionnaireUserFromId(questionnaireId);
+        const data = await showQuestionnaire(questionnaireId, userId);
         return { statusCode: 200, body: JSON.stringify(data) };
     } catch (error) {
         return {

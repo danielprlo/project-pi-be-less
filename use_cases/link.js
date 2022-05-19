@@ -10,20 +10,24 @@ const generateLinkFromQuestionnaireId = async(questionnaireId, userId) => {
     return 'https://dnbjqdte2wiuk.cloudfront.net/fill-questionnaire/'+questionnaireId;
 }
 
-const getQuestionnaireIdFromLink = async(questionnaireId) => {
+const getQuestionnaireUserFromId = async(questionnaireId) => {
+    console.log('Goign to do the try')
+    let item;
     try {
-        const item = await linkRepo.get(questionnaireId);
+        console.log('calling it');
+        item = await linkRepo.get(questionnaireId);
     } catch (error) {
         throw error;
     }
 
+    console.log('Da item', item);
+
     if(item.Item) {
-        const questionnaireId = item.Item.pk.replace('LINK#', '');
-        return 'USER#'+item.Item.sk+'QUESTIONNAIRE#'+questionnaireId
+        return item.Item.sk
     }
 
     return '';
 }
 
 
-module.exports = { generateLinkFromQuestionnaireId, getQuestionnaireIdFromLink }
+module.exports = { generateLinkFromQuestionnaireId, getQuestionnaireUserFromId }
