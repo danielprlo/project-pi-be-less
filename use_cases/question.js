@@ -32,4 +32,22 @@ const getQuestions = async (questionnaireId) => {
     }
 }
 
-module.exports = { deleteQuestion, createQuestion, showQuestion, getQuestions }
+const deleteAllQuestions = async (questionnaireId) => {
+    try {
+        const questions = await questionRepository.get(questionnaireId);
+        console.log('da questions', questions);
+        if (questions.Items.length > 0) {
+            for (const question in questions.Items) {
+                console.log('da question', question);
+                const questionId = question.pk;
+                await questionRepository.del(questionnaireId, questionId);
+            }
+        }
+    } catch (error) {
+        throw error;
+    }
+
+    return true;
+}
+
+module.exports = { deleteQuestion, createQuestion, showQuestion, getQuestions, deleteAllQuestions }

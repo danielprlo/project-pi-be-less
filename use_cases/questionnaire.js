@@ -1,4 +1,5 @@
 const questionnaireRepository = require('../repositories/questionnaire');
+const questionUseCase = require('../use_cases/question');
 
 const getQuestionnaires = async (userId) => {
     try {
@@ -18,7 +19,8 @@ const showQuestionnaire = async (questionnaireId, userId) => {
 
 const deleteQuestionnaire = async (questionnaireId, userId) => {
     try {
-        return await questionnaireRepository.del(questionnaireId, userId);
+        await questionnaireRepository.del(questionnaireId, userId);
+        return await questionUseCase.deleteAllQuestions(questionnaireId);
     } catch (error) {
         throw error;
     }

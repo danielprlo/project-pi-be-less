@@ -7,6 +7,7 @@ const {
 } = require('../../use_cases/questionnaire');
 
 const repository = require('../../repositories/questionnaire');
+const questionUseCase = require('../../use_cases/question');
 
 describe('Questionnaire use case', () => {
   beforeEach(() => {
@@ -41,9 +42,11 @@ describe('Questionnaire use case', () => {
     it('Should delete one questionnaire', async () => {
       const promise = new Promise((resolve) => resolve(true));
       const delQuestionnairesRepoSpy = jest.spyOn(repository, 'del').mockImplementation(() => promise);
+      const delAllQuestionUseCase = jest.spyOn(questionUseCase, 'deleteAllQuestions').mockImplementation(() => promise);
 
       const response = await deleteQuestionnaire('123')
 
+      expect(delQuestionnairesRepoSpy).toBeCalledTimes(1);
       expect(delQuestionnairesRepoSpy).toBeCalledTimes(1);
       expect(response).toEqual(true);
     });
