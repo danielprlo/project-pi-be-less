@@ -38,9 +38,8 @@ const deleteAllQuestions = async (questionnaireId) => {
         if (questions.Items.length > 0) {
             questions.Items.forEach(async question => {
                 console.log('da question', question);
-                const questionId = question.sk;
-                console.log('going to delete', questionnaireId, questionId);
-                await questionRepository.del(questionnaireId, questionId);
+                console.log('going to delete', question.pk, question.sk);
+                await questionRepository.del(question.pk, question.sk);
             })
         }
     } catch (error) {
