@@ -240,6 +240,8 @@ Resources:
           Type: Api
           Properties:
             Path: /questionnaire/{id}/answers
+            Auth:
+              Authorizer: NONE
             Method: post
             RestApiId: !Ref MyApi
       Environment:
@@ -262,6 +264,8 @@ Resources:
           Type: Api
           Properties:
             Path: /public/questionnaire/{id}/questions
+            Auth:
+              Authorizer: NONE
             Method: get
             RestApiId: !Ref MyApi
       Environment:
